@@ -1,66 +1,39 @@
 "use client";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import ProjectCard from "./ProjectCard";
 import ProjectTag from "./ProjectTag";
 import { motion, useInView } from "framer-motion";
 
-const projectsData = [
-  {
-    id: 1,
-    title: "Next.js Portfolio Website",
-    description: "Project 1 description",
-    image: "/images/projects/1.png",
-    tag: ["All", "Web"],
-    gitUrl: "https://github.com/yukkussungs/potofolio-site",
-    previewUrl: "https://potofolio-site.vercel.app/",
-  },
-  {
-    id: 2,
-    title: "LinkTree-Nuxt to Website",
-    description: "Project 2 description",
-    image: "/images/projects/2.png",
-    tag: ["All", "Web"],
-    gitUrl: "/",
-    previewUrl: "/",
-  },
-  {
-    id: 3,
-    title: "Treads light clone to use Nuxt",
-    description: "Project 3 description",
-    image: "/images/projects/3.png",
-    tag: ["All", "Web"],
-    gitUrl: "https://github.com/yukkussungs/threads-nuxt",
-    previewUrl: "https://threads-nuxt.netlify.app/",
-  },
-  {
-    id: 4,
-    title: "Trello clone to use Nuxt",
-    description: "This project is Trello clone to use Nuxt.js",
-    tag: ["All", "Web"],
-    gitUrl: "https://github.com/yukkussungs/threads-nuxt",
-    previewUrl: "https://threads-nuxt.netlify.app/"
-  },
-  {
-    id: 4,
-    title: "Food Ordering Application",
-    description: "Project 4 description",
-    image: "/images/projects/4.png",
-    tag: ["All", "Mobile"],
-    gitUrl: "/",
-    previewUrl: "/",
-  },
-];
+
+const fetchProjects = async () => {
+    const endpoint = `http://localhost:3000/api/project`;
+    const res = await fetch(endpoint);
+	const data = await res.json();
+	return data.projects;
+}
+
 
 const ProjectsSection = () => {
   const [tag, setTag] = useState("All");
+  const [projects, setProjects] = useState([]);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await fetchProjects();
+      setProjects(result);
+    };
+
+    fetchData();
+  }, []);
+
 
   const handleTagChange = (newTag) => {
     setTag(newTag);
   };
 
-  const filteredProjects = projectsData.filter((project) =>
+  const filteredProjects = projects.filter((project) =>
     project.tag.includes(tag)
   );
 
@@ -69,10 +42,12 @@ const ProjectsSection = () => {
     animate: { y: 0, opacity: 1 },
   };
 
+
+
   return (
     <section id="projects">
       <h2 className="text-center text-4xl font-bold text-white mt-4 mb-8 md:mb-12">
-        My Projects
+        個人 Projects
       </h2>
       <div className="text-white flex flex-row justify-center items-center gap-2 py-6">
         <ProjectTag
