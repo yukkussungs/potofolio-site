@@ -51,15 +51,13 @@ const EmailSection = () => {
         </h5>
         <p className="text-[#ADB7BE] mb-4 max-w-md">
           {" "}
-          I&apos;m currently looking for new opportunities, my inbox is always
-          open. Whether you have a question or just want to say hi, I&apos;ll
-          try my best to get back to you!
+          {`現在、新しい機会を探しています。私の受信トレイは常に開いています。質問がある場合や、ただ挨拶したい場合でも、できる限り返信いたしますので、お気軽にご連絡ください。`}
         </p>
         <div className="socials flex flex-row gap-2">
-          <Link href="github.com">
+          <Link href="https://github.com/yukkussungs" rel="github" target="_blank">
             <Image src={GithubIcon} alt="Github Icon" />
           </Link>
-          <Link href="linkedin.com">
+          <Link href="https://www.linkedin.com/in/woosung-shin-084748159/" rel="github" target="_blank">
             <Image src={LinkedinIcon} alt="Linkedin Icon" />
           </Link>
         </div>
