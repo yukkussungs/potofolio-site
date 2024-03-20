@@ -6,7 +6,7 @@ import { motion, useInView } from "framer-motion";
 
 
 const fetchProjects = async () => {
-    const endpoint = `http://localhost:3000/api/project`;
+    const endpoint = `/api/project`;
     const res = await fetch(endpoint);
 	const data = await res.json();
 	return data.projects;
