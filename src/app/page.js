@@ -8,6 +8,7 @@ import ProjectsSection from "./components/ProjectSection";
 import EmailSection from "./components/EmailSection";
 import AchievementsSection from "./components/AchievementsSection";
 import Footer from "./components/Footer";
+export const dynamic = "force-dynamic";
 
 export default function Home() {
   return (
