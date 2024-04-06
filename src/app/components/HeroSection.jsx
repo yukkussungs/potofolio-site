@@ -4,6 +4,10 @@ import Image from 'next/image';
 import { TypeAnimation } from 'react-type-animation';
 
 const HeroSection = () => {
+
+  const onDonwloadPage = () => {
+    window.open('https://nkciiupyxwridbytkhcr.supabase.co/storage/v1/object/public/potofolio-files/careerSheet(Shin%20Woosung).zip?t=2024-04-06T08%3A29%3A22.825Z', '_blank');
+  }
     return (
       <section>
         <div className="grid grid-cols-1 sm:grid-cols-12">
@@ -28,8 +32,8 @@ const HeroSection = () => {
             </h1>
             <div>
               {/* <button className="px-6 py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 hover:bg-slate-200 text-white">Hire Me</button> */}
-              <button className="px-1 py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 hover:bg-slate-800 text-white mt-3">
-                <span className="block bg-[#121212] hober:bg-slate-800 rounded-full px-5 py-2">Download CV</span>
+              <button className="px-1 py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 hover:bg-slate-800 text-white mt-3" onClick={() => onDonwloadPage()}>
+                <span className="block bg-[#121212] hober:bg-slate-800 rounded-full px-5 py-2">履歴書＆職務経歴書はこちら</span>
               </button>
             </div>
           </div>
